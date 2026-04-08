@@ -3,145 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на торжество: Кара-Сал Ангырак & Алдынай</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Приглашение: Кара-Сал Ангырак</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; padding: 0; background-color: #fdfbf7; font-family: 'Montserrat', sans-serif; color: #333; overflow-x: hidden; scroll-behavior: smooth; }
-        .container { max-width: 650px; margin: 20px auto; text-align: center; padding: 40px 20px; border: 1px solid #e0d5c1; background: white; box-shadow: 0 10px 40px rgba(0,0,0,0.08); position: relative; border-radius: 10px; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; color: #b08d57; }
-        .header-decor { width: 80px; margin-bottom: 15px; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        .event-title { font-size: 1.1em; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 25px; color: #777; font-weight: 300; }
-        .names { font-size: 2.8em; margin: 15px 0; font-style: italic; font-weight: 700; line-height: 1.2; }
-        .main-p { font-size: 1.1em; line-height: 1.6; margin: 20px 0; padding: 0 20px; }
-
-        /* --- ГАЛЕРЕЯ (РОВНАЯ СЕТКА) --- */
-        .photo-gallery { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 15px; 
-            margin: 40px 0; 
-            padding: 0 10px; 
+        body { 
+            margin: 0; padding: 0; 
+            background-color: #f0f2f5; 
+            font-family: 'Montserrat', sans-serif; 
+            color: #2c3e50; 
+            overflow-x: hidden; 
         }
+
+        .page-wrapper {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #1a237e 0%, #2c3e50 100%);
+        }
+
+        .decorative-border {
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 2px solid #c5a059;
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 5;
+            opacity: 0.4;
+        }
+
+        .container { 
+            width: 100%;
+            max-width: 480px; 
+            margin: 0 auto; 
+            text-align: center; 
+            padding: 40px 25px; 
+            background: white; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+            position: relative; 
+            border-radius: 24px; 
+            z-index: 10;
+        }
+        
+        .header-decor { 
+            width: 70px; 
+            margin-bottom: 15px; 
+        }
+        
+        h3 { 
+            font-family: 'Playfair Display', serif; 
+            color: #9e9e9e; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            font-size: 0.75em; 
+            margin-bottom: 5px; 
+        }
+
+        .names { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.1em; 
+            font-weight: 700;
+            margin: 5px 0 20px; 
+            color: #1a237e; 
+            line-height: 1.2;
+        }
+
+        .main-p { 
+            font-size: 1.05em; 
+            line-height: 1.6; 
+            margin-bottom: 25px; 
+            font-weight: 400;
+            color: #444;
+        }
+
+        .highlight {
+            color: #c5a059;
+            font-weight: 600;
+        }
+
+        .photo-gallery { margin: 25px 0; }
         .photo-item { 
             width: 100%; 
-            height: 250px; 
+            height: auto; 
+            border-radius: 15px; 
+            border: 5px solid #fff; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
             object-fit: cover; 
-            border-radius: 8px; 
-            border: 3px solid #f9f6f0; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-            transition: transform 0.4s ease; 
-            cursor: pointer; 
         }
-        .photo-item:hover { transform: scale(1.05); z-index: 10; }
 
-        /* --- ТАЙМЕР --- */
-        .timer-section { background: #b08d57; color: white; padding: 30px; border-radius: 8px; margin: 40px 0; box-shadow: inset 0 0 20px rgba(0,0,0,0.1); }
-        .timer-section h3 { color: white; margin-top: 0; font-size: 1.5em; text-transform: uppercase; letter-spacing: 2px; }
-        #countdown { display: flex; justify-content: center; gap: 15px; }
-        .time-block { text-align: center; background: rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 5px; min-width: 60px; }
-        .time-block span { display: block; font-size: 2.5em; font-weight: 600; line-height: 1; }
-        .time-block em { display: block; font-size: 0.8em; font-style: normal; text-transform: uppercase; opacity: 0.8; margin-top: 5px; }
+        .timer-section { 
+            background: #1a237e; 
+            color: white; 
+            padding: 20px 10px; 
+            border-radius: 15px; 
+            margin: 30px 0; 
+        }
+        #countdown { display: flex; justify-content: center; gap: 10px; }
+        .time-block { text-align: center; flex: 1; }
+        .time-block span { display: block; font-size: 1.6em; font-weight: 700; color: #c5a059; }
+        .time-block em { display: block; font-size: 0.6em; font-style: normal; text-transform: uppercase; opacity: 0.8; }
 
-        /* --- ДЕТАЛИ --- */
-        .details-box { background: #f9f6f0; padding: 30px; border-radius: 8px; margin: 40px 0; border: 1px solid #eae1d0; }
-        .detail-item { margin: 20px 0; font-size: 1.1em; }
-        .detail-item strong { display: block; color: #b08d57; font-family: 'Playfair Display', serif; font-size: 1.4em; margin-bottom: 5px; }
+        .details-box { 
+            background: #f9f9f9; 
+            padding: 25px; 
+            border-radius: 18px; 
+            margin: 30px 0; 
+            border: 1px solid #e0e0e0; 
+        }
+        .detail-item { margin: 15px 0; font-size: 1.1em; }
+        .detail-item strong { 
+            display: block; 
+            color: #c5a059; 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.3em; 
+            margin-bottom: 5px; 
+        }
 
-        /* --- КНОПКИ --- */
-        .btn-group { display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 30px; }
-        .btn { display: inline-block; padding: 15px 25px; color: white; text-decoration: none; border-radius: 50px; transition: all 0.3s ease; cursor: pointer; border: none; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; width: 100%; max-width: 300px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .btn-map { background-color: #b08d57; margin-bottom: 10px; }
-        .btn-map:hover { background-color: #8e6f42; transform: translateY(-3px); }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn { 
+            display: block; 
+            padding: 18px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            font-size: 13px; 
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #1a237e; 
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1a237e;
+            border: 2px solid #1a237e;
+        }
+
+        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
         
-        .contact-row { display: flex; gap: 10px; width: 100%; max-width: 400px; justify-content: center; }
-        .btn-vk-male { background-color: #0077FF; flex: 1; }
-        .btn-vk-female { background-color: #f06292; flex: 1; }
-        .btn-vk-male:hover, .btn-vk-female:hover { transform: translateY(-3px); opacity: 0.9; }
-
-        .btn-confetti { background: none; color: #b08d57; border: 2px solid #b08d57; margin-top: 25px; font-size: 12px; padding: 8px 15px; box-shadow: none; width: auto; }
-
-        footer { margin-top: 50px; font-style: italic; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
-        #confetti-canvas { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 999; }
-        
-        @media (max-width: 500px) { 
-            .names { font-size: 2em; } 
-            .contact-row { flex-direction: column; align-items: center; }
-            .btn { max-width: 280px; }
-            .photo-gallery { grid-template-columns: 1fr; } 
+        footer { 
+            margin-top: 30px; 
+            font-style: italic; 
+            color: #999; 
+            font-size: 0.85em; 
+            border-top: 1px solid #eee;
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
 
-<canvas id="confetti-canvas"></canvas>
+<div class="page-wrapper">
+    <div class="decorative-border"></div>
 
-<div class="container">
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Diploma" class="header-decor">
-    <div class="event-title">Торжественное приглашение</div>
-    
-    <p class="main-p">Дорогие наши родные, близкие, друзья и наставники!</p>
-    <p class="main-p">В жизни каждой семьи бывают моменты, которые хочется разделить с самыми близкимии и дорогими людьми. Для нас таким моментом стало успешное окончание учебы и получение дипломов о высшем образовании. В связи с этим, мы имеем честь пригласить вас на торжественный банкет, посвященный этому знаменательному событию. Мы будем счастливы видеть вас и наших гостей, разделить с вами нашу радость и поблагодарить за вашу поддержку и тепло в важном пути</p>
-
-    <div class="names">Кара-Сал Ангырак <br> & <br> Кара-Сал Алдынай</div>
-
-    <h3>Наш путь в фотографиях</h3>
-    <div class="photo-gallery">
-        <img src="https://i.ibb.co/Q3f3F6jk/image.jpg" class="photo-item">
-        <img src="https://i.ibb.co/cKY1MmSb/image.jpg" class="photo-item">
-        <img src="https://i.ibb.co/F4HZH5JB/2.jpg" class="photo-item">
-        <img src="https://i.ibb.co/Pnx1gB7/image.jpg" class="photo-item">
-    </div>
-
-    <div class="timer-section">
-        <h3>До торжества осталось:</h3>
-        <div id="countdown">
-            <div class="time-block"><span id="days">00</span><em>дней</em></div>
-            <div class="time-block"><span id="hours">00</span><em>часов</em></div>
-            <div class="time-block"><span id="minutes">00</span><em>минут</em></div>
-            <div class="time-block"><span id="seconds">00</span><em>секунд</em></div>
-        </div>
-    </div>
-
-    <div class="details-box">
-        <div class="detail-item"><strong>КОГДА</strong> 26 апреля 2026 года</div>
-        <div class="detail-item"><strong>ВРЕМЯ</strong> 15:00</div>
-        <div class="detail-item"><strong>ГДЕ</strong> Банкетный зал «Аристократ»<br>г. Кызыл, ул. Каа-Хем, 110</div>
-    </div>
-
-    <div class="btn-group">
-        <button class="btn btn-map" onclick="window.open('https://yandex.ru/maps/?text=Кызыл+Каа-Хем+110+Аристократ')">📍 Посмотреть на карте</button>
+    <div class="container">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" alt="Icon" class="header-decor">
         
-        <p style="margin: 15px 0 5px; color: #777; font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px;">Подтвердить участие в VK:</p>
+        <h3>Приглашение на торжество</h3>
         
-        <div class="contact-row">
-            <button class="btn btn-vk-male" onclick="window.open('https://vk.com/ksangyr')">🔵 Ангыраку</button>
-            
-            <button class="btn btn-vk-female" onclick="window.open('https://vk.com/aldshh')">🌸 Алдынай</button>
+        <div class="names">Кара-Сал Ангырак</div>
+        
+        <p class="main-p">
+            Дорогие мои близкие, родственники, друзья и наставники! С радостью приглашаю вас на торжество, посвященное важному событию в моей жизни — успешному окончанию университета и получению диплома о высшем образовании.
+           
+            Буду бесконечно рад разделить этот важный момент с вами. Жду каждого из вас на моем празднике!
+        </p>
+
+        <div class="photo-gallery">
+            <img src="https://i.ibb.co/DP6rCmkF/image.jpg" class="photo-item" alt="Кара-Сал Ангырак">
+            <img src="https://i.ibb.co/21gQsY3w/image.jpg" class="photo-item" alt="Кара-Сал Ангырак">
         </div>
+
+        <div class="timer-section">
+            <div id="countdown">
+                <div class="time-block"><span id="days">00</span><em>дней</em></div>
+                <div class="time-block"><span id="hours">00</span><em>часов</em></div>
+                <div class="time-block"><span id="minutes">00</span><em>минут</em></div>
+                <div class="time-block"><span id="seconds">00</span><em>секунд</em></div>
+            </div>
+        </div>
+
+        <div class="details-box">
+            <div class="detail-item">
+                <strong>КОГДА</strong> 
+                26 апреля 2026 года в 15:00
+            </div>
+            <div class="detail-item">
+                <strong>ГДЕ</strong> 
+                Банкетный зал «Аристократ»<br>
+                ул. Каа-Хем, д. 110
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <a href="https://vk.com/ksangyr" target="_blank" class="btn btn-primary">✉️ Подтвердить участие</a>
+            <a href="https://yandex.ru/maps/?text=Кызыл+Каа-Хем+110+Аристократ" target="_blank" class="btn btn-secondary">📍 Посмотреть на карте</a>
+        </div>
+
+        <footer>С уважением и любовью, Ангырак</footer>
     </div>
-
-    <button class="btn btn-confetti" onclick="startConfetti()">✨ Больше радости!</button>
-
-    <footer>С уважением, семья Кара-Сал</footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
+    // Обновленное время отсчета на 15:00
     const targetDate = new Date('April 26, 2026 15:00:00').getTime();
+
     function updateCountdown() {
-        const now = new Date().getTime();
-        const gap = targetDate - now;
-        if (gap < 0) { document.getElementById('countdown').innerHTML = "<h3>Ура! Встречаемся!</h3>"; return; }
+        const gap = targetDate - new Date().getTime();
         const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
+        if (gap < 0) { document.getElementById('countdown').innerHTML = "Начинаем празднование!"; return; }
         document.getElementById('days').innerText = Math.floor(gap / day);
         document.getElementById('hours').innerText = Math.floor((gap % day) / hour);
         document.getElementById('minutes').innerText = Math.floor((gap % hour) / minute);
         document.getElementById('seconds').innerText = Math.floor((gap % minute) / second);
     }
-    setInterval(updateCountdown, 1000);
-    function startConfetti() { confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#b08d57', '#ffffff'] }); }
-    window.onload = () => { setTimeout(startConfetti, 1000); };
+    setInterval(updateCountdown, 1000); updateCountdown();
+
+    window.onload = () => {
+        setTimeout(() => {
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.7 }, colors: ['#1a237e', '#c5a059'] });
+        }, 800);
+    };
 </script>
+
 </body>
 </html>
